@@ -1,4 +1,4 @@
-module OfPromise = {
+module Promise = {
   let execute = ((), ()) => ()
 
   let either = ((), ()) => ()

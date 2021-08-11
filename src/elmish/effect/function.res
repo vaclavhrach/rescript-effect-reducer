@@ -1,17 +1,17 @@
-module OfFunc = {
-  type action<'res> = unit => 'res
+module Function = {
+  type action<'response> = unit => 'response
   type callback<'param> = 'param => unit
-  type success<'res, 'disp> = 'res => 'disp
-  type successCallback<'res> = callback<'res>
-  type error<'err, 'disp> = 'err => 'disp
-  type errorCallback<'err> = callback<'err>
+  type success<'response, 'dispatch> = 'response => 'dispatch
+  type successCallback<'response> = callback<'response>
+  type error<'error, 'dispatch> = 'error => 'dispatch
+  type errorCallback<'error> = callback<'error>
 
   let execute = (
-    ~action: action<'res>,
-    ~onSuccess: option<success<'res, 'disp>>=None,
-    ~onSuccessCallback: option<successCallback<'res>>=None,
-    ~onError: option<error<'err, 'disp>>=None,
-    ~onErrorCallback: option<errorCallback<'err>>=None,
+    ~action: action<'response>,
+    ~onSuccess: option<success<'response, 'dispatch>>=None,
+    ~onSuccessCallback: option<successCallback<'response>>=None,
+    ~onError: option<error<'error, 'dispatch>>=None,
+    ~onErrorCallback: option<errorCallback<'error>>=None,
     (),
   ) => {
     dispatch => {
@@ -48,20 +48,20 @@ module OfFunc = {
   }
 
   let either = (
-    action: action<'res>,
-    onSuccess: success<'res, 'disp>,
-    onError: error<'err, 'disp>,
+    action: action<'response>,
+    onSuccess: success<'response, 'dispatch>,
+    onError: error<'error, 'dispatch>,
   ) => execute(~action, ~onSuccess=Some(onSuccess), ~onError=Some(onError), ())
 
   let perform = (
-    action: action<'res>,
-    onSuccess: success<'res, 'disp>,
-    onErrorCallback: errorCallback<'err>,
+    action: action<'response>,
+    onSuccess: success<'response, 'dispatch>,
+    onErrorCallback: errorCallback<'error>,
   ) => execute(~action, ~onSuccess=Some(onSuccess), ~onErrorCallback=Some(onErrorCallback), ())
 
   let attempt = (
-    action: action<'res>,
-    onSuccessCallback: successCallback<'res>,
-    onError: error<'err, 'disp>,
+    action: action<'response>,
+    onSuccessCallback: successCallback<'response>,
+    onError: error<'error, 'dispatch>,
   ) => execute(~action, ~onSuccessCallback=Some(onSuccessCallback), ~onError=Some(onError), ())
 }
