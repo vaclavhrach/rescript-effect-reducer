@@ -1,0 +1,41 @@
+{
+  "name": "rescript-effect-reducer",
+  "version": "0.0.1",
+  "author": "Václav Hrach",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaclavhrach/rescript-effect-reducer.git"
+  },
+  "homepage": "https://github.com/vaclavhrach/rescript-effect-reducer",
+  "bugs": "https://github.com/vaclavhrach/rescript-effect-reducer/issues",
+  "scripts": {
+    "build": "rescript build",
+    "clean": "rescript clean -with-deps",
+    "start": "rescript build -w",
+    "test": "npm run build && jest --passWithNoTests",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "rescript",
+    "react",
+    "@rescript/react",
+    "side-effects",
+    "reducer",
+    "local state management"
+  ],
+  "dependencies": {
+    "@rescript/react": "^0.10.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rescript": "*"
+  },
+  "peerDependencies": {
+    "@rescript/react": ">=0.10.0",
+    "react": ">=17.0.x"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.7.0",
+    "@testing-library/react-hooks": "^7.0.1"
+  }
+}
