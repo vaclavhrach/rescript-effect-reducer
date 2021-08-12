@@ -1,1 +1,22 @@
 remote_theme: pmarsceill/just-the-docs
+
+title: Effect Reducer
+description: React.useReducer hook on steroids with the possibility of side-effects controlling
+baseurl: "/rescript-effect-reducer" # the subpath of your site, e.g. /blog
+url: "https://vaclavhrach.github.io"
+
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 2
+  preview_words_before: 3
+  preview_words_after: 3
+  tokenizer_separator: /[\s/]+/
+  rel_url: true
+  button: fals
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
+
+color_scheme: "dark"
