@@ -11,7 +11,7 @@ search:
   preview_words_after: 3
   tokenizer_separator: /[\s/]+/
   rel_url: true
-  button: fals
+  button: false
 
 # Back to top link
 back_to_top: true
