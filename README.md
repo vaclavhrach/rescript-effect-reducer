@@ -21,7 +21,7 @@ and then add rescript-effect-reducer to `bsconfig.json`:
 ```
 "bs-dependencies": [
     "rescript-effect-reducer"
-],.
+]
 ```
 
 ## Usage
