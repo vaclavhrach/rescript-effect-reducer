@@ -26,6 +26,9 @@ and then add rescript-effect-reducer to `bsconfig.json`:
 
 ## Usage
 
+The code below shows a simple counter implementation using the useEffectReducer hook 
+where it is also possible to adjust the step value in addition to increment and decrement
+
 ```ocaml
 
 open EffectReducer
