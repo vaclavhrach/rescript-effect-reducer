@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "author": "Václav Hrach",
   "license": "MIT",
+  "description": "React.useReducer hook on steroids with the possibility of side-effects controlling",
   "repository": {
     "type": "git",
     "url": "https://github.com/vaclavhrach/rescript-effect-reducer.git"
