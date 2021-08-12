@@ -32,49 +32,83 @@ open EffectReducer
 
 /* Model */
 type state = {
-    counter: int,
-    step: int
+  counter: int,
+  step: int,
 }
 
 /* Actions */
 type actions =
-    | Increment
-    | Decrement
-    | UpdateStep(int)
+  | Increment
+  | Decrement
+  | UpdateStep(int)
 
 /* Initialization */
 let init = (
-    {
-        counter: 0,
-        step: 1
-    },
-    Effect.none
+  {
+    counter: 0,
+    step: 1,
+  },
+  Effect.none,
 )
 
 /* Methods */
-let increment = model => ({ ...model, counter: model.counter + model.step }, Effect.none)
-let decrement = model => ({ ...model, counter: model.counter - model.step }, Effect.none)
-let updateStep = (model, step) => ({ ...model, step: step )}, Effect.none)
+let increment = state => ({...state, counter: state.counter + state.step}, Effect.none)
+let decrement = state => ({...state, counter: state.counter - state.step}, Effect.none)
+let updateStep = (state, step) => ({...state, step: step}, Effect.none)
 
 /* Update */
-let update = (state, msg): (state, Effect.t<actions>) =>
-    switch actions {
-    | Increment => model->increment
-    | Decrement => model->decrement
-    | UpdateStep(step) => model->updateStep(step)
-    }
+let update = (state, actions): (state, Effect.t<actions>) =>
+  switch actions {
+  | Increment => state->increment
+  | Decrement => state->decrement
+  | UpdateStep(step) => state->updateStep(step)
+  }
+
+/* Styles */
+let styles = {
+  "container": ReactDOM.Style.make(
+    ~display="inline-flex",
+    ~alignItems="center",
+    ~marginBottom="2em",
+    (),
+  ),
+  "result": ReactDOM.Style.make(~margin="0 1em", ()),
+  "button": ReactDOM.Style.make(~width="30px", ~textAlign="center", ()),
+}
+
+/* Helpers */
+let toString = str => str->React.string
 
 /* Component */
 @react.component
 let make = () => {
-    let (state, dispatch) = useEffectReducer({
-        init: init,
-        update: update
-    })
+  // Use effect reducer hook
+  let (state, dispatch) = useEffectReducer({
+    init: init,
+    update: update,
+  })
 
-    <>
-        ... your ui here ...
-    </>
+  // Event handlers
+  let handleStepChange = event =>
+    ReactEvent.Form.currentTarget(event)["value"]->int_of_string->UpdateStep->dispatch
+
+  // JSX
+  <>
+    <h2> {"Counter"->toString} </h2>
+    <div style={styles["container"]}>
+      <button style={styles["button"]} onClick={_ => dispatch(Increment)}> {"+"->toString} </button>
+      <div style={styles["result"]}>
+        {("Counter value is: " ++ state.counter->string_of_int)->toString}
+      </div>
+      <button style={styles["button"]} onClick={_ => dispatch(Decrement)}> {"-"->toString} </button>
+    </div>
+    <div>
+      <strong> {"Step: "->toString} </strong>
+      <input
+        id="step" type_="number" value={state.step->string_of_int} onChange={handleStepChange}
+      />
+    </div>
+  </>
 }
 
 ```
