@@ -1,6 +1,6 @@
 {
   "name": "rescript-effect-reducer",
-  "version": "0.0.2",
+  "version": "0.0.0-development",
   "author": "Václav Hrach",
   "license": "MIT",
   "repository": {
@@ -13,8 +13,10 @@
     "build": "rescript build",
     "clean": "rescript clean -with-deps",
     "start": "rescript build -w",
-    "test": "npm run build && jest --passWithNoTests",
-    "test:watch": "jest --watch"
+    "test": "jest --passWithNoTests",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release --branches master",
+    "acp": "git add . && npm run commit && git push"
   },
   "keywords": [
     "rescript",
@@ -36,6 +38,13 @@
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.7.0",
-    "@testing-library/react-hooks": "^7.0.1"
+    "@testing-library/react-hooks": "^7.0.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "semantic-release": "^17.4.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

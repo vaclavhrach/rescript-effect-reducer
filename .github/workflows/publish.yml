@@ -4,28 +4,42 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches: 
+      - '*'
 
 jobs:
-  release:
-    name: "publish"
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
+  quality:
+    runs-on: ${{ matrix.os }}
 
-      - name: node
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
 
-      - name: build
-        run: |
-          npm install
-          npm run build
-          npm test
-
-      - name: publish
-        run: npm publish --access public
+  publish:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
+    needs: [quality]
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
