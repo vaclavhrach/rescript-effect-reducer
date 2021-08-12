@@ -41,14 +41,14 @@ TODO
 | Method                        | Signature         | Usage         | Ready to use          |
 | ----------------------------- | ----------------- | ------------- | --------------------- |
 | `Effect.none`                 | TODO              | TODO          | :heavy_check_mark:    |
+| `Effect.Self.single`          | TODO              | TODO          | :heavy_check_mark:    |
+| `Effect.Self.pair`            | TODO              | TODO          | :x:                   |
+| `Effect.Self.delayed`         | TODO              | TODO          | :heavy_check_mark:    |
+| `Effect.Self.batch`           | TODO              | TODO          | :heavy_check_mark:    |
 | `Effect.Action.single`        | TODO              | TODO          | :heavy_check_mark:    |
-| `Effect.Action.pair`          | TODO              | TODO          | :heavy_check_mark:    |
+| `Effect.Action.pair`          | TODO              | TODO          | :x:                   |
 | `Effect.Action.delayed`       | TODO              | TODO          | :heavy_check_mark:    |
 | `Effect.Action.batch`         | TODO              | TODO          | :heavy_check_mark:    |
-| `Effect.Self.single`          | TODO              | TODO          | :heavy_check_mark:    |
-| `Effect.Self.pair`            | TODO              | TODO          | :heavy_check_mark:    |
-| `Effect.Slef.delayed`         | TODO              | TODO          | :heavy_check_mark:    |
-| `Effect.Self.batch`           | TODO              | TODO          | :heavy_check_mark:    |
 | `Effect.Function.execute`     | TODO              | TODO          | :heavy_check_mark:    |
 | `Effect.Function.either`      | TODO              | TODO          | :heavy_check_mark:    |
 | `Effect.Function.perform`     | TODO              | TODO          | :heavy_check_mark:    |
