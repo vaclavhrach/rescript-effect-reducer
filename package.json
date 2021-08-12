@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.7.0",
+    "@semantic-release/changelog": "^5.0.1",
     "@testing-library/react-hooks": "^7.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^17.4.4"
