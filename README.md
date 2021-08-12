@@ -32,13 +32,13 @@ TODO
 
 #### Types
 
-| Type                          | Signature             | Usage         | Ready to use          |
+| Type                          | Description           | Usage         | Ready to use          |
 | ----------------------------- | --------------------- | ------------- | --------------------- |
-| `Effect.t`                     | `Effect.t<'action>`   | TODO          | :heavy_check_mark:    |
+| `Effect.t`                    | TODO                  | TODO          | :heavy_check_mark:    |
 
 #### Methods 
 
-| Method                        | Signature         | Usage         | Ready to use          |
+| Method                        | Description       | Usage         | Ready to use          |
 | ----------------------------- | ----------------- | ------------- | --------------------- |
 | `Effect.none`                 | TODO              | TODO          | :heavy_check_mark:    |
 | `Effect.Self.single`          | TODO              | TODO          | :heavy_check_mark:    |
