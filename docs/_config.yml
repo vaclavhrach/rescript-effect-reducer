@@ -3,6 +3,5 @@ description: React.useReducer hook on steroids with the possibility of side-effe
 baseurl: "/rescript-effect-reducer" # the subpath of your site, e.g. /blog
 url: "https://vaclavhrach.github.io"
 
-color_scheme: "dark"
 theme: jekyll-theme-minimal
 remote_theme: pmarsceill/just-the-docs
