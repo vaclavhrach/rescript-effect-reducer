@@ -1,8 +1,8 @@
 include Effect
 
-type config<'model, 'action> = {
-  init: ('model, Effect.t<'action>),
-  update: ('model, 'action) => ('model, Effect.t<'action>),
+type config<'state, 'action> = {
+  init: ('state, Effect.t<'action>),
+  update: ('state, 'action) => ('state, Effect.t<'action>),
 }
 
 let useEffectReducer = ({init, update}) => {
