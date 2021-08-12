@@ -15,7 +15,7 @@
     "start": "rescript build -w",
     "test": "jest --passWithNoTests",
     "commit": "git-cz",
-    "semantic-release": "semantic-release --branches master",
+    "release": "semantic-release",
     "acp": "git add . && npm run commit && git push"
   },
   "keywords": [
@@ -46,5 +46,16 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "verifyConditions": [
+      "@semantic-release/changelog"
+    ],
+    "prepare": [
+      "@semantic-release/changelog"
+    ]
   }
 }
