@@ -1,5 +1,3 @@
-remote_theme: pmarsceill/just-the-docs
-
 title: Effect Reducer
 description: React.useReducer hook on steroids with the possibility of side-effects controlling
 baseurl: "/rescript-effect-reducer" # the subpath of your site, e.g. /blog
@@ -20,3 +18,5 @@ back_to_top: true
 back_to_top_text: "Back to top"
 
 color_scheme: "dark"
+theme: jekyll-theme-minimal
+remote_theme: pmarsceill/just-the-docs
