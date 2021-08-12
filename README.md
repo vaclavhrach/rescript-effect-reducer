@@ -4,7 +4,7 @@
 
 ## Installation
 
-with npm
+install package with npm
 ```
 npm i rescript-effect-reducer
 ```
@@ -15,7 +15,7 @@ or with yarn
 yarn add rescript-effect-reducer
 ```
 
-Then add rescript-effect-reducer to `bsconfig.json`:
+and then add rescript-effect-reducer to `bsconfig.json`:
 ```
 "bs-dependencies": [
     "rescript-effect-reducer"
