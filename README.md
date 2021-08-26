@@ -18,7 +18,7 @@ yarn add rescript-effect-reducer
 
 and then add rescript-effect-reducer to `bsconfig.json`:
 
-```
+```json
 "bs-dependencies": [
     "rescript-effect-reducer"
 ]
@@ -50,16 +50,16 @@ let init = (
     counter: 0,
     step: 1,
   },
-  Effect.none,
+  EffectReducer_Effect.none,
 )
 
 /* Methods */
-let increment = state => ({...state, counter: state.counter + state.step}, Effect.none)
-let decrement = state => ({...state, counter: state.counter - state.step}, Effect.none)
-let updateStep = (state, step) => ({...state, step: step}, Effect.none)
+let increment = state => ({...state, counter: state.counter + state.step}, EffectReducer_Effect.none)
+let decrement = state => ({...state, counter: state.counter - state.step}, EffectReducer_Effect.none)
+let updateStep = (state, step) => ({...state, step: step}, EffectReducer_Effect.none)
 
 /* Update */
-let update = (state, actions): (state, Effect.t<actions>) =>
+let update = (state, actions): (state, EffectReducer_Effect.t<actions>) =>
   switch actions {
   | Increment => state->increment
   | Decrement => state->decrement
@@ -136,21 +136,19 @@ let make = () => {
 | --------------------------------------- | ----------- | ----- | ------------------ |
 | `EffectReducer.Effect.none`             | TODO        | TODO  | :heavy_check_mark: |
 | `EffectReducer.Effect.Self.single`      | TODO        | TODO  | :heavy_check_mark: |
-| `EffectReducer.Effect.Self.pair`        | TODO        | TODO  | :x:                |
 | `EffectReducer.Effect.Self.delayed`     | TODO        | TODO  | :heavy_check_mark: |
 | `EffectReducer.Effect.Self.batch`       | TODO        | TODO  | :heavy_check_mark: |
 | `EffectReducer.Effect.Action.single`    | TODO        | TODO  | :heavy_check_mark: |
-| `EffectReducer.Effect.Action.pair`      | TODO        | TODO  | :x:                |
 | `EffectReducer.Effect.Action.delayed`   | TODO        | TODO  | :heavy_check_mark: |
 | `EffectReducer.Effect.Action.batch`     | TODO        | TODO  | :heavy_check_mark: |
 | `EffectReducer.Effect.Function.execute` | TODO        | TODO  | :heavy_check_mark: |
 | `EffectReducer.Effect.Function.either`  | TODO        | TODO  | :heavy_check_mark: |
 | `EffectReducer.Effect.Function.perform` | TODO        | TODO  | :heavy_check_mark: |
 | `EffectReducer.Effect.Function.attempt` | TODO        | TODO  | :heavy_check_mark: |
-| `EffectReducer.Effect.Promise.execute`  | TODO        | TODO  | :x:                |
-| `EffectReducer.Effect.Promise.either`   | TODO        | TODO  | :x:                |
-| `EffectReducer.Effect.Promise.perform`  | TODO        | TODO  | :x:                |
-| `EffectReducer.Effect.Promise.attempt`  | TODO        | TODO  | :x:                |
+| `EffectReducer.Effect.Promise.execute`  | TODO        | TODO  | :heavy_check_mark: |
+| `EffectReducer.Effect.Promise.either`   | TODO        | TODO  | :heavy_check_mark: |
+| `EffectReducer.Effect.Promise.perform`  | TODO        | TODO  | :heavy_check_mark: |
+| `EffectReducer.Effect.Promise.attempt`  | TODO        | TODO  | :heavy_check_mark: |
 
 ## Examples
 

@@ -14,14 +14,15 @@
   ],
   "package-specs": {
     "module": "es6",
-    "in-source": false
+    "in-source": true
   },
   "suffix": ".bs.js",
   "reason": {
     "react-jsx": 3
   },
   "bs-dependencies": [
-    "@rescript/react"
+    "@rescript/react",
+    "@ryyppy/rescript-promise"
   ],
   "bs-dev-dependencies": [
     "@glennsl/bs-jest"

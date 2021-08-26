@@ -1,5 +1,24 @@
-.DS_Store
-/node_modules/
-/lib/
-.bsb.lock
+# ReScript
+lib
 .merlin
+.bsb.lock
+
+# Intellij
+.idea
+
+# vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Vite
+dist
+
+# npm
+node_modules
+
+# macOS
+.DS_Store

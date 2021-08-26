@@ -1,4 +1,4 @@
-include Effect
+module Effect = EffectReducer_Effect
 
 type config<'state, 'action> = {
   init: ('state, Effect.t<'action>),
@@ -6,10 +6,7 @@ type config<'state, 'action> = {
 }
 
 let useEffectReducer = ({init, update}) => {
-  let (rest, dispatch) = React.useReducer(
-    ((state, _), action) => update(state, action),
-    init,
-  )
+  let (rest, dispatch) = React.useReducer(((state, _), action) => update(state, action), init)
 
   let (state, effect) = rest
 
