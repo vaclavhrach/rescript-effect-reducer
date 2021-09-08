@@ -1,5 +1,8 @@
 # rescript-effect-reducer
 
+[![npm](https://img.shields.io/npm/v/rescript-effect-reducer)](https://npm.im/rescript-effect-reducer)
+[![npm downloads per month](https://img.shields.io/npm/dm/rescript-effect-reducer)](https://npm.im/rescript-effect-reducer)
+
 `React.useReducer(...)` on steroids with the possibility of side-effects controlling
 
 ## Installation
