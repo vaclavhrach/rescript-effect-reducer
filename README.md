@@ -53,16 +53,16 @@ let init = (
     counter: 0,
     step: 1,
   },
-  EffectReducer_Effect.none,
+  Effect.none,
 )
 
 /* Methods */
-let increment = state => ({...state, counter: state.counter + state.step}, EffectReducer_Effect.none)
-let decrement = state => ({...state, counter: state.counter - state.step}, EffectReducer_Effect.none)
-let updateStep = (state, step) => ({...state, step: step}, EffectReducer_Effect.none)
+let increment = state => ({...state, counter: state.counter + state.step}, Effect.none)
+let decrement = state => ({...state, counter: state.counter - state.step}, Effect.none)
+let updateStep = (state, step) => ({...state, step: step}, Effect.none)
 
 /* Update */
-let update = (state, actions): (state, EffectReducer_Effect.t<actions>) =>
+let update = (state, actions): (state, Effect.t<actions>) =>
   switch actions {
   | Increment => state->increment
   | Decrement => state->decrement
